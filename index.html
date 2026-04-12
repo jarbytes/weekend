@@ -3,744 +3,403 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weekend Cafe | Siargao</title>
-  <meta name="description" content="Weekend Cafe in Siargao - Where coffee meets the sea. Fresh brews, island vibes, and good times.">
+  <title>/WEEK·END/ Cafe | Siargao</title>
+  <meta name="description" content="Weekend Cafe in Siargao — Where coffee meets the sea. Fresh brews, island vibes, brunch, and good times.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --green-dark: #1B5E3B;
+      --green: #1B5E3B;
       --green-mid: #2A7A4E;
       --green-light: #4A9A6E;
-      --cream: #FAFAFA;
-      --sand: #F0EDE8;
-      --warm-white: #FFFFFF;
-      --text-dark: #111111;
-      --text-mid: #444444;
-      --text-light: #888888;
-      --accent: #8B6F47;
-      --accent-light: #B89A6E;
-      --black: #000000;
+      --brown: #8B6F47;
+      --brown-light: #B89A6E;
+      --sand: #F5F0E8;
+      --white: #FFFFFF;
+      --black: #111111;
+      --gray: #666666;
+      --gray-light: #999999;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', sans-serif;
-      color: var(--text-dark);
-      background: var(--warm-white);
+      color: var(--black);
+      background: var(--white);
       overflow-x: hidden;
     }
 
-    /* Navigation */
+    /* ---- NAV ---- */
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 1.2rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: all 0.4s;
     }
-
     nav.scrolled {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 30px rgba(0,0,0,0.08);
     }
-
     .nav-logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: white;
-      text-decoration: none;
+      font-size: 1.3rem; font-weight: 700;
+      color: white; text-decoration: none;
       transition: color 0.3s;
-      letter-spacing: 0.02em;
     }
-
-    .nav-dot {
-      color: var(--green-dark);
-    }
-
-    nav.scrolled .nav-logo {
-      color: var(--text-dark);
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-
+    .nav-logo .dot { color: var(--green); }
+    nav.scrolled .nav-logo { color: var(--black); }
+    .nav-links { display: flex; list-style: none; gap: 2rem; }
     .nav-links a {
-      text-decoration: none;
-      color: var(--cream);
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      transition: color 0.3s, opacity 0.3s;
-      opacity: 0.9;
+      text-decoration: none; color: rgba(255,255,255,0.85);
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.03em;
+      transition: color 0.3s;
     }
-
-    .nav-links a:hover {
-      opacity: 1;
-    }
-
-    nav.scrolled .nav-links a {
-      color: var(--text-dark);
-    }
-
+    nav.scrolled .nav-links a { color: var(--black); }
+    .nav-links a:hover { opacity: 0.7; }
     .nav-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px;
     }
-
     .nav-toggle span {
-      width: 24px;
-      height: 2px;
-      background: var(--cream);
-      transition: background 0.3s, transform 0.3s;
-      display: block;
+      width: 22px; height: 2px; background: white;
+      transition: background 0.3s; display: block;
     }
+    nav.scrolled .nav-toggle span { background: var(--black); }
 
-    nav.scrolled .nav-toggle span {
-      background: var(--text-dark);
-    }
-
-    /* Hero */
+    /* ---- HERO ---- */
     .hero {
-      position: relative;
-      height: 100vh;
-      min-height: 600px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: #000000;
-      overflow: hidden;
+      position: relative; height: 100vh; min-height: 650px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
     }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: none;
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('images/cafe-exterior.JPG') center/cover no-repeat;
     }
-
-    .hero-logo {
-      width: 140px;
-      height: auto;
-      margin-bottom: 1.5rem;
-      filter: invert(1);
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(0,0,0,0.3) 0%,
+        rgba(0,0,0,0.4) 50%,
+        rgba(0,0,0,0.6) 100%);
     }
-
     .hero-content {
-      position: relative;
-      z-index: 1;
-      padding: 0 2rem;
+      position: relative; z-index: 1; padding: 0 2rem;
+      animation: heroFadeIn 1.2s ease-out;
     }
-
-    .hero-badge {
-      display: inline-block;
-      padding: 0.5rem 1.5rem;
-      border: none;
-      border-radius: 0;
-      font-size: 0.85rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 2.5rem;
-      font-weight: 300;
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 8vw, 5.5rem);
-      font-weight: 700;
-      color: white;
-      line-height: 1.1;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.02em;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      font-weight: 700; color: white; line-height: 1;
+      margin-bottom: 0.3rem; letter-spacing: 0.02em;
     }
-
+    .hero h1 .dot { color: var(--green); font-size: 1.2em; }
+    .hero-siargao {
+      font-size: 0.9rem; letter-spacing: 0.4em;
+      color: rgba(255,255,255,0.6); font-weight: 300;
+      margin-bottom: 2rem;
+    }
     .hero-tagline {
-      font-size: clamp(1rem, 2.5vw, 1.3rem);
-      color: rgba(255,255,255,0.8);
-      font-weight: 300;
-      letter-spacing: 0.02em;
-      margin-bottom: 3rem;
+      font-family: 'Caveat', cursive;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      color: rgba(255,255,255,0.9); margin-bottom: 2.5rem;
     }
-
     .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1rem 2.5rem;
-      background: white;
-      color: #000;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 0.95rem;
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 1rem 2.5rem; background: var(--green);
+      color: white; text-decoration: none; border-radius: 50px;
+      font-weight: 600; font-size: 0.9rem;
       transition: transform 0.3s, box-shadow 0.3s;
     }
-
     .hero-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(255,255,255,0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(27,94,59,0.4);
     }
-
-    .scroll-indicator {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
+    .scroll-down {
+      position: absolute; bottom: 2rem; left: 50%;
       transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
       color: rgba(255,255,255,0.5);
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      animation: bobbing 2s ease-in-out infinite;
+      animation: bounce 2s ease-in-out infinite;
     }
-
-    @keyframes bobbing {
+    @keyframes bounce {
       0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(8px); }
+      50% { transform: translateX(-50%) translateY(10px); }
     }
 
-    /* Sections */
-    section {
-      padding: 6rem 2rem;
+    /* ---- MARQUEE ---- */
+    .marquee-wrap {
+      background: var(--green); color: white; overflow: hidden;
+      padding: 0.85rem 0; position: relative;
+    }
+    .marquee {
+      display: flex; gap: 3rem; white-space: nowrap;
+      animation: marquee 25s linear infinite;
+      font-family: 'Caveat', cursive; font-size: 1.15rem;
+    }
+    .marquee span { display: flex; align-items: center; gap: 0.4rem; }
+    .marquee .sep { color: var(--brown-light); }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
 
-    .section-container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
+    /* ---- SECTIONS ---- */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
     .section-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--green-mid);
-      font-weight: 600;
-      margin-bottom: 0.75rem;
+      font-size: 0.7rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--green);
+      font-weight: 700; margin-bottom: 0.5rem;
     }
-
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 600;
-      color: var(--text-dark);
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
+      font-weight: 600; line-height: 1.2; margin-bottom: 1rem;
+    }
+    .section-desc {
+      font-size: 1rem; line-height: 1.8; color: var(--gray);
+      max-width: 550px;
     }
 
-    .section-text {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: var(--text-mid);
-      max-width: 600px;
-    }
-
-    /* About */
-    .about {
-      background: var(--cream);
-    }
-
+    /* ---- ABOUT ---- */
+    .about { background: var(--sand); }
     .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
     }
-
-    .about-image {
-      width: 100%;
-      aspect-ratio: 4/5;
-      background: linear-gradient(135deg, var(--green-light), var(--accent-light));
-      border-radius: 20px;
-      position: relative;
-      overflow: hidden;
+    .about-photo {
+      width: 100%; aspect-ratio: 4/5; border-radius: 24px;
+      overflow: hidden; position: relative;
     }
-
-    .about-image::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
+    .about-photo img {
+      width: 100%; height: 100%; object-fit: cover;
     }
-
-    .about-image-placeholder {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 1rem;
-      color: white;
-      font-size: 0.85rem;
-      opacity: 0.8;
+    .about-photo-badge {
+      position: absolute; bottom: 1.5rem; left: 1.5rem;
+      background: var(--green); color: white;
+      padding: 0.6rem 1.2rem; border-radius: 50px;
+      font-family: 'Caveat', cursive; font-size: 1.1rem;
     }
-
-    .about-image-placeholder svg {
-      width: 48px;
-      height: 48px;
-      opacity: 0.6;
-    }
-
     .about-features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 2.5rem;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.2rem; margin-top: 2rem;
     }
-
-    .about-feature {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
+    .about-feat {
+      padding: 1.2rem; border-radius: 14px;
+      background: white; transition: transform 0.2s;
     }
+    .about-feat:hover { transform: translateY(-3px); }
+    .about-feat h4 { font-size: 0.9rem; margin-bottom: 0.2rem; }
+    .about-feat p { font-size: 0.78rem; color: var(--gray-light); }
 
-    .about-feature-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: #000;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 1.1rem;
+    /* ---- MENU ---- */
+    .menu { background: var(--white); }
+    .menu-header { text-align: center; margin-bottom: 2.5rem; }
+    .menu-header .section-desc { margin: 0 auto; }
+    .menu-legend {
+      text-align: center; font-size: 0.8rem; color: var(--gray-light);
+      margin-bottom: 2rem;
     }
-
-    .about-feature h4 {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-    }
-
-    .about-feature p {
-      font-size: 0.8rem;
-      color: var(--text-light);
-    }
-
-    /* Menu */
-    .menu {
-      background: var(--warm-white);
-    }
-
-    .menu-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .menu-header .section-text {
-      margin: 0 auto;
-    }
-
     .menu-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
+      display: flex; justify-content: center; gap: 0.4rem;
+      margin-bottom: 2.5rem; flex-wrap: wrap;
     }
-
     .menu-tab {
-      padding: 0.6rem 1.5rem;
-      border: 1.5px solid #ddd;
-      border-radius: 50px;
-      background: transparent;
-      color: var(--text-mid);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s;
+      padding: 0.55rem 1.3rem; border: none; border-radius: 50px;
+      background: var(--sand); color: var(--gray);
+      font-family: 'Inter', sans-serif; font-size: 0.8rem;
+      font-weight: 500; cursor: pointer; transition: all 0.3s;
     }
-
-    .menu-tab.active,
-    .menu-tab:hover {
-      background: #000;
-      border-color: #000;
-      color: white;
+    .menu-tab.active, .menu-tab:hover {
+      background: var(--black); color: white;
     }
-
     .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1rem;
-    }
-
-    .menu-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 1.25rem 1.5rem;
-      background: var(--cream);
-      border-radius: 14px;
-      transition: transform 0.2s;
-    }
-
-    .menu-item:hover {
-      transform: translateY(-2px);
-    }
-
-    .menu-item-name {
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .menu-item-desc {
-      font-size: 0.8rem;
-      color: var(--text-light);
-    }
-
-    .menu-item-price {
-      font-weight: 600;
-      color: var(--green-dark);
-      font-size: 0.95rem;
-      white-space: nowrap;
-      margin-left: 1rem;
-    }
-
-    .menu-category {
-      display: none;
-    }
-
-    .menu-category.active {
-      display: grid;
-    }
-
-    /* Gallery */
-    .gallery {
-      background: var(--cream);
-    }
-
-    .gallery-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .gallery-item {
-      aspect-ratio: 1;
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-    }
-
-    .gallery-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 0.5rem;
-      font-size: 0.75rem;
-      color: white;
-      opacity: 0.7;
-      transition: opacity 0.3s;
-    }
-
-    .gallery-item:hover .gallery-placeholder {
-      opacity: 1;
-    }
-
-    .gallery-placeholder svg {
-      width: 32px;
-      height: 32px;
-    }
-
-    .gallery-item:nth-child(1) .gallery-placeholder { background: linear-gradient(135deg, #5A8A6A, #8BB89C); }
-    .gallery-item:nth-child(2) .gallery-placeholder { background: linear-gradient(135deg, #D4A574, #E8C9A0); }
-    .gallery-item:nth-child(3) .gallery-placeholder { background: linear-gradient(135deg, #4A7C5C, #7AAD8C); }
-    .gallery-item:nth-child(4) .gallery-placeholder { background: linear-gradient(135deg, #C9956A, #DEBB94); }
-    .gallery-item:nth-child(5) .gallery-placeholder { background: linear-gradient(135deg, #3A6B4A, #6A9B7A); }
-    .gallery-item:nth-child(6) .gallery-placeholder { background: linear-gradient(135deg, #B88A5A, #D4B48A); }
-
-    .gallery-cta {
-      text-align: center;
-      margin-top: 2.5rem;
-    }
-
-    .gallery-cta a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--green-dark);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: gap 0.3s;
-    }
-
-    .gallery-cta a:hover {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 0.8rem;
     }
-
-    /* Hours */
-    .hours {
-      background: #000000;
-      color: white;
-      text-align: center;
+    .menu-category { display: none; }
+    .menu-category.active { display: grid; }
+    .menu-item {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding: 1.1rem 1.3rem; background: var(--sand);
+      border-radius: 12px; transition: transform 0.2s;
+    }
+    .menu-item:hover { transform: translateY(-2px); }
+    .menu-item-name { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.15rem; }
+    .menu-item-desc { font-size: 0.78rem; color: var(--gray-light); }
+    .menu-item-price {
+      font-weight: 600; color: var(--green); font-size: 0.85rem;
+      white-space: nowrap; margin-left: 1rem; flex-shrink: 0;
+    }
+    .menu-sub {
+      grid-column: 1 / -1; padding: 0.6rem 0 0.2rem;
+      font-size: 0.72rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--brown);
+      font-weight: 700;
     }
 
-    .hours .section-label {
-      color: var(--green-dark);
+    /* ---- GALLERY ---- */
+    .gallery { background: var(--sand); }
+    .gallery-header { text-align: center; margin-bottom: 2.5rem; }
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0.8rem;
     }
-
-    .hours .section-title {
-      color: white;
+    .gallery-item {
+      aspect-ratio: 1; border-radius: 16px; overflow: hidden;
+      position: relative; cursor: pointer;
     }
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 0.5rem;
+      font-size: 0.75rem; color: white; opacity: 0.8;
+    }
+    .gallery-placeholder svg { width: 28px; height: 28px; }
+    .gp1 { background: linear-gradient(135deg, #3a6b4a, #6a9b7a); }
+    .gp2 { background: linear-gradient(135deg, #8B6F47, #B89A6E); }
+    .gp3 { background: linear-gradient(135deg, #1B5E3B, #4A9A6E); }
+    .gp4 { background: linear-gradient(135deg, #a08050, #d4b48a); }
+    .gp5 { background: linear-gradient(135deg, #2d5a3d, #7aad8c); }
+    .gp6 { background: linear-gradient(135deg, #6b5030, #a08050); }
+    .gallery-cta { text-align: center; margin-top: 2rem; }
+    .gallery-cta a {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--green); text-decoration: none;
+      font-weight: 600; font-size: 0.9rem; transition: gap 0.3s;
+    }
+    .gallery-cta a:hover { gap: 0.8rem; }
 
+    /* ---- HOURS ---- */
+    .hours-section {
+      background: var(--black); color: white;
+      text-align: center; padding: 5rem 2rem;
+    }
+    .hours-section .section-label { color: var(--green); }
+    .hours-section .section-title { color: white; }
     .hours-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      max-width: 700px;
-      margin: 3rem auto 0;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.5rem; max-width: 550px; margin: 2.5rem auto 0;
     }
-
     .hours-card {
-      padding: 2rem 1.5rem;
-      background: rgba(255,255,255,0.08);
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.1);
+      padding: 2rem 1.5rem; border-radius: 16px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
     }
-
     .hours-card h4 {
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--green-dark);
-      margin-bottom: 0.75rem;
+      font-size: 0.8rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--green); margin-bottom: 0.5rem;
     }
-
     .hours-card p {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 600;
+      font-size: 1.3rem; font-weight: 600;
     }
-
-    .hours-note {
+    .hours-fun {
       margin-top: 2rem;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.5);
+      font-family: 'Caveat', cursive; font-size: 1.2rem;
+      color: var(--brown-light);
     }
 
-    /* Location / Contact */
-    .contact {
-      background: var(--warm-white);
-    }
-
+    /* ---- CONTACT ---- */
+    .contact { background: var(--white); }
     .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
     }
-
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .contact-item {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
     .contact-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: var(--sand);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--green-dark);
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--sand); display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0; color: var(--green);
     }
-
-    .contact-item h4 {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 0.3rem;
+    .contact-item h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .contact-item p, .contact-item a {
+      font-size: 0.85rem; color: var(--gray); text-decoration: none;
     }
-
-    .contact-item p,
-    .contact-item a {
-      font-size: 0.9rem;
-      color: var(--text-mid);
-      text-decoration: none;
-    }
-
-    .contact-item a:hover {
-      color: var(--green-dark);
-    }
-
-    .contact-socials {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
-
+    .contact-item a:hover { color: var(--green); }
+    .contact-socials { display: flex; gap: 0.6rem; margin-top: 1rem; }
     .social-link {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: #000;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      transition: transform 0.2s, background 0.2s;
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--black); color: white;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; transition: all 0.2s;
     }
-
-    .social-link:hover {
-      transform: translateY(-2px);
-      background: var(--green-dark);
-    }
-
+    .social-link:hover { background: var(--green); transform: translateY(-2px); }
     .contact-map {
-      width: 100%;
-      aspect-ratio: 4/3;
-      border-radius: 20px;
-      overflow: hidden;
-      background: var(--sand);
+      width: 100%; aspect-ratio: 4/3; border-radius: 20px;
+      overflow: hidden; background: var(--sand);
     }
+    .contact-map iframe { width: 100%; height: 100%; border: 0; }
 
-    .contact-map iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    /* Footer */
+    /* ---- FOOTER ---- */
     footer {
-      background: #000;
-      color: rgba(255,255,255,0.5);
-      text-align: center;
-      padding: 2.5rem 2rem;
-      font-size: 0.85rem;
+      background: var(--black); color: rgba(255,255,255,0.4);
+      text-align: center; padding: 2.5rem 2rem; font-size: 0.8rem;
     }
-
-    footer a {
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
+    footer .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-weight: 700;
+      color: white; margin-bottom: 0.5rem;
     }
+    footer .footer-logo .dot { color: var(--green); }
 
-    /* Animations */
+    /* ---- ANIMATIONS ---- */
     .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      opacity: 0; transform: translateY(25px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in-left {
+      opacity: 0; transform: translateX(-30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
+    .fade-in-left.visible { opacity: 1; transform: translateX(0); }
+    .fade-in-right {
+      opacity: 0; transform: translateX(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in-right.visible { opacity: 1; transform: translateX(0); }
 
-    /* Mobile */
+    /* ---- MOBILE ---- */
     @media (max-width: 768px) {
       .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(253, 248, 240, 0.98);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        padding: 1.5rem 2rem;
-        gap: 1rem;
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        background: rgba(255,255,255,0.98); backdrop-filter: blur(12px);
+        flex-direction: column; padding: 1.5rem 2rem; gap: 1rem;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-links a {
-        color: var(--text-dark) !important;
-        font-size: 1rem;
-      }
-
-      .nav-toggle {
-        display: flex;
-      }
-
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-
-      .about-features {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      section {
-        padding: 4rem 1.5rem;
-      }
-
-      .menu-grid {
-        grid-template-columns: 1fr;
-      }
+      .nav-links.open { display: flex; }
+      .nav-links a { color: var(--black) !important; font-size: 1rem; }
+      .nav-toggle { display: flex; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-features { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      section { padding: 3.5rem 1.5rem; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .hours-grid { grid-template-columns: 1fr; }
+      .marquee { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Nav -->
   <nav id="navbar">
-    <a href="#" class="nav-logo">/WEEK<span class="nav-dot">&middot;</span>END/</a>
+    <a href="#" class="nav-logo">/WEEK<span class="dot">&middot;</span>END/</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#menu">Menu</a></li>
@@ -755,92 +414,74 @@
 
   <!-- Hero -->
   <section class="hero" id="home">
+    <div class="hero-bg"></div>
     <div class="hero-content">
-      <!-- Sun/Moon icon -->
-      <svg class="hero-logo" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="25" y1="60" x2="75" y2="20" stroke="white" stroke-width="1.5"/>
-        <!-- Sun -->
-        <circle cx="40" cy="32" r="8" stroke="white" stroke-width="1.5"/>
-        <line x1="40" y1="20" x2="40" y2="16" stroke="white" stroke-width="1.5"/>
-        <line x1="40" y1="48" x2="40" y2="44" stroke="white" stroke-width="1.5"/>
-        <line x1="28" y1="32" x2="24" y2="32" stroke="white" stroke-width="1.5"/>
-        <line x1="52" y1="32" x2="56" y2="32" stroke="white" stroke-width="1.5"/>
-        <line x1="31.5" y1="23.5" x2="28.7" y2="20.7" stroke="white" stroke-width="1.5"/>
-        <line x1="48.5" y1="40.5" x2="51.3" y2="43.3" stroke="white" stroke-width="1.5"/>
-        <!-- Moon -->
-        <path d="M60 52 A8 8 0 1 0 60 36 A6 6 0 0 1 60 52Z" stroke="white" stroke-width="1.5"/>
-        <!-- Stars -->
-        <line x1="70" y1="28" x2="70" y2="24" stroke="white" stroke-width="1"/>
-        <line x1="68" y1="26" x2="72" y2="26" stroke="white" stroke-width="1"/>
-        <circle cx="30" cy="50" r="0.8" fill="white"/>
-        <circle cx="74" y1="38" cy="38" r="0.8" fill="white"/>
-      </svg>
-      <h1>/WEEK<span style="color: var(--green-dark)">&middot;</span>END/</h1>
-      <div class="hero-badge">S I A R G A O</div>
+      <h1>/WEEK<span class="dot">&middot;</span>END/</h1>
+      <p class="hero-siargao">S I A R G A O</p>
       <p class="hero-tagline">Weekend starts when coffee meets the sea!</p>
       <a href="#menu" class="hero-cta">
         Explore Our Menu
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
-    <div class="scroll-indicator">
-      <span>Scroll</span>
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    <div class="scroll-down">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
     </div>
   </section>
 
+  <!-- Marquee -->
+  <div class="marquee-wrap">
+    <div class="marquee">
+      <span>Fresh Coffee <span class="sep">&bull;</span></span>
+      <span>Beach Blends <span class="sep">&bull;</span></span>
+      <span>Brunch All Day <span class="sep">&bull;</span></span>
+      <span>Siargao Vibes <span class="sep">&bull;</span></span>
+      <span>Cloud Foam Magic <span class="sep">&bull;</span></span>
+      <span>Island Eats <span class="sep">&bull;</span></span>
+      <span>Ube Cheese Latte <span class="sep">&bull;</span></span>
+      <span>Good Morning Tapa! <span class="sep">&bull;</span></span>
+      <!-- duplicate for seamless loop -->
+      <span>Fresh Coffee <span class="sep">&bull;</span></span>
+      <span>Beach Blends <span class="sep">&bull;</span></span>
+      <span>Brunch All Day <span class="sep">&bull;</span></span>
+      <span>Siargao Vibes <span class="sep">&bull;</span></span>
+      <span>Cloud Foam Magic <span class="sep">&bull;</span></span>
+      <span>Island Eats <span class="sep">&bull;</span></span>
+      <span>Ube Cheese Latte <span class="sep">&bull;</span></span>
+      <span>Good Morning Tapa! <span class="sep">&bull;</span></span>
+    </div>
+  </div>
+
   <!-- About -->
   <section class="about" id="about">
-    <div class="section-container">
+    <div class="container">
       <div class="about-grid">
-        <div class="about-image fade-in">
-          <div class="about-image-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span>Add your photo here</span>
-          </div>
+        <div class="about-photo fade-in-left">
+          <img src="images/cafe-exterior.JPG" alt="Weekend Cafe exterior with thatched roof and tropical plants in Siargao">
+          <div class="about-photo-badge">Come say hi!</div>
         </div>
-        <div class="fade-in">
+        <div class="fade-in-right">
           <p class="section-label">Our Story</p>
           <h2 class="section-title">A little escape,<br>every weekend</h2>
-          <p class="section-text">
-            Nestled in the heart of Siargao, Weekend is where the island slows down for a perfect cup of coffee. We bring together fresh, locally sourced ingredients with the laid-back spirit of island life &mdash; because every day should feel like the weekend.
+          <p class="section-desc">
+            Tucked beneath coconut palms and a nipa roof in the heart of Siargao, /WEEK&middot;END/ is where the island slows down for a perfect cup. We bring together fresh, locally sourced ingredients with the laid-back spirit of island life &mdash; because every day should feel like the weekend.
           </p>
           <div class="about-features">
-            <div class="about-feature">
-              <div class="about-feature-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 8h1a4 4 0 110 8h-1"/><path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
-              </div>
-              <div>
-                <h4>Fresh Brews</h4>
-                <p>Locally sourced beans</p>
-              </div>
+            <div class="about-feat">
+              <h4>Fresh Brews</h4>
+              <p>Locally sourced beans, crafted daily</p>
             </div>
-            <div class="about-feature">
-              <div class="about-feature-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-              </div>
-              <div>
-                <h4>Island Vibes</h4>
-                <p>Tropical atmosphere</p>
-              </div>
+            <div class="about-feat">
+              <h4>Island Vibes</h4>
+              <p>Nipa hut, palm trees, birdsong</p>
             </div>
-            <div class="about-feature">
-              <div class="about-feature-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <div>
-                <h4>Heart of Siargao</h4>
-                <p>Easy to find</p>
-              </div>
+            <div class="about-feat">
+              <h4>Signature Drinks</h4>
+              <p>Ube Cheese Latte &amp; Cloud Foams</p>
             </div>
-            <div class="about-feature">
-              <div class="about-feature-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
-              </div>
-              <div>
-                <h4>Good Food</h4>
-                <p>Fresh daily menu</p>
-              </div>
+            <div class="about-feat">
+              <h4>Pinoy Brunch</h4>
+              <p>Tapa, longganisa, danggit &amp; more</p>
             </div>
           </div>
         </div>
@@ -850,13 +491,13 @@
 
   <!-- Menu -->
   <section class="menu" id="menu">
-    <div class="section-container">
+    <div class="container">
       <div class="menu-header fade-in">
-        <p class="section-label">What We Serve</p>
+        <p class="section-label">Drink Creations &amp; Brunch Menu</p>
         <h2 class="section-title">Our Menu</h2>
-        <p class="section-text">Carefully crafted drinks and bites to fuel your island adventures.</p>
-        <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 0.5rem;">H = Hot &middot; I = Iced &middot; Prices in PHP</p>
+        <p class="section-desc">Carefully crafted drinks and bites to fuel your island adventures.</p>
       </div>
+      <p class="menu-legend fade-in">H = Hot &middot; I = Iced &middot; P = Price &middot; All prices in PHP</p>
 
       <div class="menu-tabs fade-in">
         <button class="menu-tab active" data-tab="coffee">Coffee &amp; Espresso</button>
@@ -869,297 +510,117 @@
 
       <!-- Coffee & Espresso -->
       <div class="menu-category menu-grid active" data-category="coffee">
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Espresso Shot</div><div class="menu-item-desc">Rich and bold</div></div>
-          <div class="menu-item-price">P 130</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Americano</div><div class="menu-item-desc">Espresso with hot water</div></div>
-          <div class="menu-item-price">H 140 | I 160</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Latte</div><div class="menu-item-desc">Smooth espresso with steamed milk</div></div>
-          <div class="menu-item-price">H 160 | I 180</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Cappuccino</div><div class="menu-item-desc">Espresso with foamed milk</div></div>
-          <div class="menu-item-price">H 160 | I 180</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Flat White</div><div class="menu-item-desc">Velvety microfoam espresso</div></div>
-          <div class="menu-item-price">H 160 | I 180</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Flavored Latte</div><div class="menu-item-desc">Salted Caramel, Vanilla &amp; Hazelnut</div></div>
-          <div class="menu-item-price">H 170 | I 190</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Spanish Latte</div><div class="menu-item-desc">Sweet condensed milk espresso</div></div>
-          <div class="menu-item-price">H 170 | I 190</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Mocha</div><div class="menu-item-desc">Espresso, chocolate &amp; milk</div></div>
-          <div class="menu-item-price">H 170 | I 190</div>
-        </div>
+        <div class="menu-item"><div><div class="menu-item-name">Espresso Shot</div><div class="menu-item-desc">Rich and bold</div></div><div class="menu-item-price">P 130</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Americano</div><div class="menu-item-desc">Espresso with hot water</div></div><div class="menu-item-price">H 140 | I 160</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Latte</div><div class="menu-item-desc">Smooth espresso with steamed milk</div></div><div class="menu-item-price">H 160 | I 180</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Cappuccino</div><div class="menu-item-desc">Espresso with foamed milk</div></div><div class="menu-item-price">H 160 | I 180</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Flat White</div><div class="menu-item-desc">Velvety microfoam espresso</div></div><div class="menu-item-price">H 160 | I 180</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Flavored Latte</div><div class="menu-item-desc">Salted Caramel, Vanilla &amp; Hazelnut</div></div><div class="menu-item-price">H 170 | I 190</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Spanish Latte</div><div class="menu-item-desc">Sweet condensed milk espresso</div></div><div class="menu-item-price">H 170 | I 190</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Mocha</div><div class="menu-item-desc">Espresso, chocolate &amp; milk</div></div><div class="menu-item-price">H 170 | I 190</div></div>
       </div>
 
       <!-- Signature Drinks -->
       <div class="menu-category menu-grid" data-category="signature">
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Sweet Ube Cheese Latte</div><div class="menu-item-desc">Purple yam with cream cheese</div></div>
-          <div class="menu-item-price">H 200 | I 220</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Honey Cinnamon Cloud Foam</div><div class="menu-item-desc">Honey &amp; cinnamon topped cloud</div></div>
-          <div class="menu-item-price">H 220 | I 240</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Toasted Mallows Cloud Foam</div><div class="menu-item-desc">Toasted marshmallow cloud top</div></div>
-          <div class="menu-item-price">H 220 | I 240</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Hibiscus Cloud Foam</div><div class="menu-item-desc">Floral hibiscus cloud top</div></div>
-          <div class="menu-item-price">H 220 | I 240</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Lait De Coco Siargao</div><div class="menu-item-desc">Coconut milk island special</div></div>
-          <div class="menu-item-price">I 200</div>
-        </div>
+        <div class="menu-item"><div><div class="menu-item-name">Sweet Ube Cheese Latte</div><div class="menu-item-desc">Purple yam with cream cheese</div></div><div class="menu-item-price">H 200 | I 220</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Honey Cinnamon Cloud Foam</div><div class="menu-item-desc">Honey &amp; cinnamon topped cloud</div></div><div class="menu-item-price">H 220 | I 240</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Toasted Mallows Cloud Foam</div><div class="menu-item-desc">Toasted marshmallow cloud top</div></div><div class="menu-item-price">H 220 | I 240</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Hibiscus Cloud Foam</div><div class="menu-item-desc">Floral hibiscus cloud top</div></div><div class="menu-item-price">H 220 | I 240</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Lait De Coco Siargao</div><div class="menu-item-desc">Coconut milk island special</div></div><div class="menu-item-price">I 200</div></div>
       </div>
 
       <!-- Non-Coffee & Blends -->
       <div class="menu-category menu-grid" data-category="non-coffee">
-        <div class="menu-item fade-in" style="grid-column: 1 / -1; background: none; padding: 0.5rem 0;"><div class="menu-item-name" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light);">Non-Coffee Drinks</div></div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Matcha Latte</div><div class="menu-item-desc">Premium matcha</div></div>
-          <div class="menu-item-price">H 170 | I 180</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Chocolate</div><div class="menu-item-desc">Rich and creamy</div></div>
-          <div class="menu-item-price">H 160 | I 170</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Tea</div><div class="menu-item-desc">Hot brewed tea</div></div>
-          <div class="menu-item-price">P 80</div>
-        </div>
-        <div class="menu-item fade-in" style="grid-column: 1 / -1; background: none; padding: 0.5rem 0; margin-top: 0.5rem;"><div class="menu-item-name" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light);">Beach Blends</div></div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Siargao Sunburst</div><div class="menu-item-desc">Sweet &amp; creamy mango</div></div>
-          <div class="menu-item-price">P 170</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Sunny Bananey</div><div class="menu-item-desc">Tropical banana, ultra-refreshing</div></div>
-          <div class="menu-item-price">P 170</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Weekend Twist</div><div class="menu-item-desc">Mango and banana layers</div></div>
-          <div class="menu-item-price">P 190</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Banana Protein Shake</div><div class="menu-item-desc">Tropical banana &amp; whey protein</div></div>
-          <div class="menu-item-price">P 220</div>
-        </div>
-        <div class="menu-item fade-in" style="grid-column: 1 / -1; background: none; padding: 0.5rem 0; margin-top: 0.5rem;"><div class="menu-item-name" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light);">Tropical Sips</div></div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Pink Guava Peach</div><div class="menu-item-desc">Fruity and refreshing</div></div>
-          <div class="menu-item-price">P 150</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Lemon Cucumber</div><div class="menu-item-desc">Cool and crisp</div></div>
-          <div class="menu-item-price">P 150</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Lemonade</div><div class="menu-item-desc">Classic fresh-squeezed</div></div>
-          <div class="menu-item-price">P 150</div>
-        </div>
+        <div class="menu-sub">Non-Coffee Drinks</div>
+        <div class="menu-item"><div><div class="menu-item-name">Matcha Latte</div><div class="menu-item-desc">Premium matcha</div></div><div class="menu-item-price">H 170 | I 180</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Chocolate</div><div class="menu-item-desc">Rich and creamy</div></div><div class="menu-item-price">H 160 | I 170</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Tea</div><div class="menu-item-desc">Hot brewed tea</div></div><div class="menu-item-price">P 80</div></div>
+        <div class="menu-sub">Beach Blends</div>
+        <div class="menu-item"><div><div class="menu-item-name">Siargao Sunburst</div><div class="menu-item-desc">Sweet &amp; creamy mango</div></div><div class="menu-item-price">P 170</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Sunny Bananey</div><div class="menu-item-desc">Tropical banana, ultra-refreshing</div></div><div class="menu-item-price">P 170</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Weekend Twist</div><div class="menu-item-desc">Mango and banana layers</div></div><div class="menu-item-price">P 190</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Banana Protein Shake</div><div class="menu-item-desc">Tropical banana &amp; whey protein</div></div><div class="menu-item-price">P 220</div></div>
+        <div class="menu-sub">Tropical Sips</div>
+        <div class="menu-item"><div><div class="menu-item-name">Pink Guava Peach</div><div class="menu-item-desc">Fruity and refreshing</div></div><div class="menu-item-price">P 150</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Lemon Cucumber</div><div class="menu-item-desc">Cool and crisp</div></div><div class="menu-item-price">P 150</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Lemonade</div><div class="menu-item-desc">Classic fresh-squeezed</div></div><div class="menu-item-price">P 150</div></div>
       </div>
 
       <!-- Brunch & Breakfast -->
       <div class="menu-category menu-grid" data-category="brunch">
-        <div class="menu-item fade-in" style="grid-column: 1 / -1; background: none; padding: 0.5rem 0;"><div class="menu-item-name" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light);">Brunch Meals</div></div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Supreme Weekend Plate</div><div class="menu-item-desc">Garlic rice, danggit, longganisa, corned beef &amp; 2 eggs</div></div>
-          <div class="menu-item-price">P 420</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Friday Plate</div><div class="menu-item-desc">Garlic rice, danggit &amp; 2 eggs</div></div>
-          <div class="menu-item-price">P 260</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Sunday Plate</div><div class="menu-item-desc">Garlic rice, corned beef &amp; 2 eggs</div></div>
-          <div class="menu-item-price">P 260</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Saturday Plate</div><div class="menu-item-desc">Garlic rice, Hungarian sausage &amp; 2 eggs</div></div>
-          <div class="menu-item-price">P 260</div>
-        </div>
-        <div class="menu-item fade-in" style="grid-column: 1 / -1; background: none; padding: 0.5rem 0; margin-top: 0.5rem;"><div class="menu-item-name" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light);">Breakfast</div></div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Weekend Cookie Pancake</div><div class="menu-item-desc">2-layer homemade pancake with cinnamon honey</div></div>
-          <div class="menu-item-price">P 230</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Bacon and Egg Toast</div><div class="menu-item-desc">Sourdough with bacon &amp; eggs</div></div>
-          <div class="menu-item-price">P 300</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Mushroom Bread Toast</div><div class="menu-item-desc">Sourdough with creamy mushroom</div></div>
-          <div class="menu-item-price">P 250</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Tuna Toast</div><div class="menu-item-desc">Sourdough with savory tuna &amp; eggs</div></div>
-          <div class="menu-item-price">P 260</div>
-        </div>
+        <div class="menu-sub">Brunch Meals</div>
+        <div class="menu-item"><div><div class="menu-item-name">Supreme Weekend Plate</div><div class="menu-item-desc">Garlic rice, danggit, longganisa, corned beef &amp; 2 eggs</div></div><div class="menu-item-price">P 420</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Friday Plate</div><div class="menu-item-desc">Garlic rice, danggit &amp; 2 eggs</div></div><div class="menu-item-price">P 260</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Sunday Plate</div><div class="menu-item-desc">Garlic rice, corned beef &amp; 2 eggs</div></div><div class="menu-item-price">P 260</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Saturday Plate</div><div class="menu-item-desc">Garlic rice, Hungarian sausage &amp; 2 eggs</div></div><div class="menu-item-price">P 260</div></div>
+        <div class="menu-sub">Breakfast</div>
+        <div class="menu-item"><div><div class="menu-item-name">Weekend Cookie Pancake</div><div class="menu-item-desc">2-layer homemade pancake with cinnamon honey</div></div><div class="menu-item-price">P 230</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Bacon and Egg Toast</div><div class="menu-item-desc">Sourdough with bacon &amp; eggs</div></div><div class="menu-item-price">P 300</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Mushroom Bread Toast</div><div class="menu-item-desc">Sourdough with creamy mushroom</div></div><div class="menu-item-price">P 250</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Tuna Toast</div><div class="menu-item-desc">Sourdough with savory tuna &amp; eggs</div></div><div class="menu-item-price">P 260</div></div>
       </div>
 
       <!-- Rice Bowls & Pasta -->
       <div class="menu-category menu-grid" data-category="mains">
-        <div class="menu-item fade-in" style="grid-column: 1 / -1; background: none; padding: 0.5rem 0;"><div class="menu-item-name" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light);">Rice Bowls</div></div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Oink and Crunch</div><div class="menu-item-desc">Crispy porkchop &amp; egg</div></div>
-          <div class="menu-item-price">P 280</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Weekend Wingman</div><div class="menu-item-desc">Crispy chicken finger &amp; egg with garlic sauce</div></div>
-          <div class="menu-item-price">P 280</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Porkfect Adobo</div><div class="menu-item-desc">Homemade Pinoy adobo &amp; egg</div></div>
-          <div class="menu-item-price">P 270</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Good Morning Tapa!</div><div class="menu-item-desc">Pinoy beef tapa &amp; egg</div></div>
-          <div class="menu-item-price">P 300</div>
-        </div>
-        <div class="menu-item fade-in" style="grid-column: 1 / -1; background: none; padding: 0.5rem 0; margin-top: 0.5rem;"><div class="menu-item-name" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light);">Pasta</div></div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Creamy White Pasta with Beef</div><div class="menu-item-desc">White sauce with beef strips</div></div>
-          <div class="menu-item-price">P 300</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Pasta Bolognese</div><div class="menu-item-desc">Savory tomato sauce with ground beef</div></div>
-          <div class="menu-item-price">P 300</div>
-        </div>
+        <div class="menu-sub">Rice Bowls</div>
+        <div class="menu-item"><div><div class="menu-item-name">Oink and Crunch</div><div class="menu-item-desc">Crispy porkchop &amp; egg</div></div><div class="menu-item-price">P 280</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Weekend Wingman</div><div class="menu-item-desc">Crispy chicken finger &amp; egg with garlic sauce</div></div><div class="menu-item-price">P 280</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Porkfect Adobo</div><div class="menu-item-desc">Homemade Pinoy adobo &amp; egg</div></div><div class="menu-item-price">P 270</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Good Morning Tapa!</div><div class="menu-item-desc">Pinoy beef tapa &amp; egg</div></div><div class="menu-item-price">P 300</div></div>
+        <div class="menu-sub">Pasta</div>
+        <div class="menu-item"><div><div class="menu-item-name">Creamy White Pasta with Beef</div><div class="menu-item-desc">White sauce with beef strips</div></div><div class="menu-item-price">P 300</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Pasta Bolognese</div><div class="menu-item-desc">Savory tomato sauce with ground beef</div></div><div class="menu-item-price">P 300</div></div>
       </div>
 
       <!-- Snacks & Add-Ons -->
       <div class="menu-category menu-grid" data-category="extras">
-        <div class="menu-item fade-in" style="grid-column: 1 / -1; background: none; padding: 0.5rem 0;"><div class="menu-item-name" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light);">Snacks &amp; Soda</div></div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Choco Chips Cookies</div><div class="menu-item-desc">Freshly baked</div></div>
-          <div class="menu-item-price">P 100</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Tonic Water</div><div class="menu-item-desc">&nbsp;</div></div>
-          <div class="menu-item-price">P 95</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Soda</div><div class="menu-item-desc">&nbsp;</div></div>
-          <div class="menu-item-price">P 95</div>
-        </div>
-        <div class="menu-item fade-in" style="grid-column: 1 / -1; background: none; padding: 0.5rem 0; margin-top: 0.5rem;"><div class="menu-item-name" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light);">Drink Add-Ons</div></div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Regular Milk</div><div class="menu-item-desc">&nbsp;</div></div>
-          <div class="menu-item-price">P 40</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Oat Milk</div><div class="menu-item-desc">&nbsp;</div></div>
-          <div class="menu-item-price">P 60</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Sauces &amp; Syrup</div><div class="menu-item-desc">&nbsp;</div></div>
-          <div class="menu-item-price">P 50</div>
-        </div>
-        <div class="menu-item fade-in" style="grid-column: 1 / -1; background: none; padding: 0.5rem 0; margin-top: 0.5rem;"><div class="menu-item-name" style="font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light);">Food Add-Ons</div></div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Garlic Rice</div><div class="menu-item-desc">&nbsp;</div></div>
-          <div class="menu-item-price">P 50</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Plain Rice</div><div class="menu-item-desc">&nbsp;</div></div>
-          <div class="menu-item-price">P 40</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Egg</div><div class="menu-item-desc">&nbsp;</div></div>
-          <div class="menu-item-price">P 40</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Bacon</div><div class="menu-item-desc">&nbsp;</div></div>
-          <div class="menu-item-price">P 110</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Hungarian Sausage</div><div class="menu-item-desc">&nbsp;</div></div>
-          <div class="menu-item-price">P 130</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Danggit</div><div class="menu-item-desc">&nbsp;</div></div>
-          <div class="menu-item-price">P 130</div>
-        </div>
-        <div class="menu-item fade-in">
-          <div><div class="menu-item-name">Corned Beef</div><div class="menu-item-desc">&nbsp;</div></div>
-          <div class="menu-item-price">P 130</div>
-        </div>
+        <div class="menu-sub">Snacks &amp; Soda</div>
+        <div class="menu-item"><div><div class="menu-item-name">Choco Chips Cookies</div><div class="menu-item-desc">Freshly baked</div></div><div class="menu-item-price">P 100</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Tonic Water</div></div><div class="menu-item-price">P 95</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Soda</div></div><div class="menu-item-price">P 95</div></div>
+        <div class="menu-sub">Drink Add-Ons</div>
+        <div class="menu-item"><div><div class="menu-item-name">Regular Milk</div></div><div class="menu-item-price">P 40</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Oat Milk</div></div><div class="menu-item-price">P 60</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Sauces &amp; Syrup</div></div><div class="menu-item-price">P 50</div></div>
+        <div class="menu-sub">Food Add-Ons</div>
+        <div class="menu-item"><div><div class="menu-item-name">Garlic Rice</div></div><div class="menu-item-price">P 50</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Plain Rice</div></div><div class="menu-item-price">P 40</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Egg</div></div><div class="menu-item-price">P 40</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Bacon</div></div><div class="menu-item-price">P 110</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Hungarian Sausage</div></div><div class="menu-item-price">P 130</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Danggit</div></div><div class="menu-item-price">P 130</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Corned Beef</div></div><div class="menu-item-price">P 130</div></div>
       </div>
     </div>
   </section>
 
   <!-- Gallery -->
   <section class="gallery" id="gallery">
-    <div class="section-container">
+    <div class="container">
       <div class="gallery-header fade-in">
         <p class="section-label">Moments</p>
-        <h2 class="section-title">Life at Weekend</h2>
+        <h2 class="section-title">Life at /WEEK&middot;END/</h2>
       </div>
       <div class="gallery-grid fade-in">
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span>Photo 1</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span>Photo 2</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span>Photo 3</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span>Photo 4</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span>Photo 5</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-            <span>Photo 6</span>
-          </div>
-        </div>
+        <div class="gallery-item"><div class="gallery-placeholder gp1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Photo 1</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder gp2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Photo 2</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder gp3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Photo 3</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder gp4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Photo 4</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder gp5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Photo 5</span></div></div>
+        <div class="gallery-item"><div class="gallery-placeholder gp6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Photo 6</span></div></div>
       </div>
       <div class="gallery-cta fade-in">
         <a href="https://www.instagram.com/weekend.iao/" target="_blank" rel="noopener">
           See more on Instagram
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>
   </section>
 
   <!-- Hours -->
-  <section class="hours" id="hours">
-    <div class="section-container">
+  <section class="hours-section" id="hours">
+    <div class="container">
       <div class="fade-in">
         <p class="section-label">Visit Us</p>
         <h2 class="section-title">Opening Hours</h2>
@@ -1174,33 +635,32 @@
           <p>Closed</p>
         </div>
       </div>
-      <p class="hours-note fade-in">Hours may vary on holidays. Check our Instagram for updates.</p>
+      <p class="hours-fun fade-in">Every day is a weekend... except Tuesday.</p>
     </div>
   </section>
 
-  <!-- Contact / Location -->
+  <!-- Contact -->
   <section class="contact" id="contact">
-    <div class="section-container">
+    <div class="container">
       <div class="contact-grid">
-        <div class="fade-in">
+        <div class="fade-in-left">
           <p class="section-label">Find Us</p>
           <h2 class="section-title">Come say hello</h2>
-          <p class="section-text" style="margin-bottom: 2.5rem;">We're easy to find on Siargao Island. Drop by for a cup or follow us online to stay in the loop.</p>
-
+          <p class="section-desc" style="margin-bottom: 2rem;">We're easy to find on Siargao Island. Drop by for a cup or follow us online to stay in the loop.</p>
           <div class="contact-info">
             <div class="contact-item">
               <div class="contact-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
               <div>
                 <h4>Location</h4>
                 <p>Siargao Island, Philippines</p>
-                <a href="https://maps.app.goo.gl/SGCvakZjiXxFKH2z7" target="_blank" rel="noopener" style="color: var(--green-mid); font-weight: 500;">Get directions &rarr;</a>
+                <a href="https://maps.app.goo.gl/SGCvakZjiXxFKH2z7" target="_blank" rel="noopener" style="color: var(--green); font-weight: 500;">Get directions &rarr;</a>
               </div>
             </div>
             <div class="contact-item">
               <div class="contact-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
               </div>
               <div>
                 <h4>Instagram</h4>
@@ -1208,25 +668,17 @@
               </div>
             </div>
           </div>
-
           <div class="contact-socials">
             <a href="https://www.instagram.com/weekend.iao/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             </a>
             <a href="https://maps.app.goo.gl/SGCvakZjiXxFKH2z7" target="_blank" rel="noopener" class="social-link" aria-label="Google Maps">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </a>
           </div>
         </div>
-
-        <div class="contact-map fade-in">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.123!2d126.116!3d9.849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTAnNTYuNCJOIDEyNsKwMDYnNTcuNiJF!5e0!3m2!1sen!2sph!4v1"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Weekend Cafe Location">
-          </iframe>
+        <div class="contact-map fade-in-right">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.123!2d126.116!3d9.849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTAnNTYuNCJOIDEyNsKwMDYnNTcuNiJF!5e0!3m2!1sen!2sph!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Weekend Cafe Location"></iframe>
         </div>
       </div>
     </div>
@@ -1234,27 +686,20 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2026 Weekend Cafe &middot; Siargao Island, Philippines</p>
+    <div class="footer-logo">/WEEK<span class="dot">&middot;</span>END/</div>
+    <p>&copy; 2026 /WEEK&middot;END/ Cafe &middot; Siargao Island, Philippines</p>
   </footer>
 
   <script>
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
+    // Nav scroll
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
 
-    // Mobile menu toggle
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-
-    // Close mobile menu on link click
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('open'));
-    });
+    // Mobile menu
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
 
     // Menu tabs
     document.querySelectorAll('.menu-tab').forEach(tab => {
@@ -1269,13 +714,10 @@
     // Scroll animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
   </script>
 
 </body>
